@@ -13,5 +13,5 @@ Our current goal is to create a playable fantasy level where Mushy da Mushroom c
 ## Group Goals
 
 - Sophia Phung Mushroom character, character animation, and movement integration
-- William Ngo: Map environment, lighting, and enemy placement
+- William Ngo: Map environment, map interactions, lighting, mob logic and function, and mob spawning logic
 - Shayla Ngo: Level design, main menu, instructions menu, objectives, and scene transitions
