@@ -2,23 +2,64 @@ using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
+    [Header("Camera")]
     public Camera cam;
-    private float xRotation = 0f;
-    public float xSensitivity = 30f;
-    public float ySensistivity = 30f;
-    
+
+    [SerializeField] private float distance = 5f;
+    [SerializeField] private float height = 1.5f;
+
+    [Header("Camera Rotation")]
+    [SerializeField] private float sensitivity = 0.15f;
+    [SerializeField] private float minPitch = -20f;
+    [SerializeField] private float maxPitch = 60f;
+
+    [Header("Camera Follow")]
+    [SerializeField] private float followSpeed = 15f;
+
+    private float yaw;
+    private float pitch = 15f;
+
+    private void Start()
+    {
+        // Lock and hide cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // Start camera facing the same direction as player
+        yaw = transform.eulerAngles.y;
+    }
+
     public void ProcessLook(Vector2 input)
     {
-        float mouseX = input.x;
-        float mouseY = input.y;
+        // Trackpad / mouse movement
+        yaw += input.x * sensitivity;
+        pitch -= input.y * sensitivity;
 
-        //calculate camera rotation for looking up and down
-        xRotation -= (mouseY * Time.deltaTime) * ySensistivity;
-        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
-        //apply this to camera transform
-        cam.transform.localRotation = Quaternion.Euler(xRotation, 0 , 0);
-        
-        //rotate player to look left and right
-        transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSensitivity);
+        pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
+    }
+
+    private void LateUpdate()
+    {
+        if (cam == null)
+            return;
+
+        Quaternion rotation =
+            Quaternion.Euler(pitch, yaw, 0f);
+
+        // Orbit around a point above Mushy's feet
+        Vector3 targetPosition =
+            transform.position + Vector3.up * height;
+
+        Vector3 desiredPosition =
+            targetPosition -
+            rotation * Vector3.forward * distance;
+
+        cam.transform.position = Vector3.Lerp(
+            cam.transform.position,
+            desiredPosition,
+            followSpeed * Time.deltaTime
+        );
+
+        cam.transform.rotation = rotation;
     }
 }
