@@ -41,7 +41,8 @@ public class EnemyProjectile : MonoBehaviour
             }
 
             // Enemy projectiles do not damage or collide with other enemies.
-            if (hit.collider.GetComponentInParent<FlyingEnemy>() != null || hit.collider.GetComponentInParent<SlimeEnemy>() != null)
+            if (hit.collider.GetComponentInParent<FlyingEnemy>() != null || hit.collider.GetComponentInParent<SlimeEnemy>() != null
+                || hit.collider.GetComponentInParent<ChargingMushroom>() != null)
             {
                 continue;
             }

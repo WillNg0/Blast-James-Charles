@@ -82507,9 +82507,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7909735591367774508, guid: ef2582590207a7d49b1c9268de272dad, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1919129083}
-    - targetCorrespondingSourceObject: {fileID: 7909735591367774508, guid: ef2582590207a7d49b1c9268de272dad, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1919129082}
     - targetCorrespondingSourceObject: {fileID: 7909735591367774508, guid: ef2582590207a7d49b1c9268de272dad, type: 3}
       insertIndex: -1
@@ -85265,26 +85262,6 @@ MonoBehaviour:
   minPitch: -20
   maxPitch: 60
   followSpeed: 15
---- !u!114 &1919129083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919129077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3105d323330c248a0250d4ee81b6e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  walkSpeed: 5
-  runSpeed: 8
-  gravity: -9.8
-  jumpHeight: 0.67
-  acceleration: 12
-  characterVisual: {fileID: 0}
-  rotationSpeed: 540
-  cameraTransform: {fileID: 0}
 --- !u!114 &1919129084
 MonoBehaviour:
   m_ObjectHideFlags: 0
