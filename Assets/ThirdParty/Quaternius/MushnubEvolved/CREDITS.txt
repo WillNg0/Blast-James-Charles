@@ -1,0 +1,7 @@
+Mushnub Evolved by Quaternius
+Original pack: Ultimate Monsters (October 2022)
+https://quaternius.com/packs/ultimatemonsters.html
+Model download: https://poly.pizza/m/0SZyA6MV51
+License: Public Domain (CC0)
+https://creativecommons.org/publicdomain/zero/1.0/
+Used with game-scale enlargement and adjusted Unity materials.
